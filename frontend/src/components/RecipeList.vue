@@ -101,7 +101,7 @@ const recipes = ref([]);
 const loading = ref(true);
 const selectedRecipe = ref(null);
 
-const apiUrl = 'http://localhost:5000/api/recipe';
+const apiUrl = `${import.meta.env.VITE_API_URL}/api/recipe`;
 
 const getRecipes = async () => {
     try {

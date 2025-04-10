@@ -79,7 +79,7 @@ const saveRecipe = async () => {
   }
 
   try {
-    const url = 'http://localhost:5000/api/recipe';
+    const url = `${import.meta.env.VITE_API_URL}/api/recipe`;
     const response = await axios.post(url, recipe.value);
     if (response.status === 201) {
       toast.success("บันทึกเมนูสำเร็จ");

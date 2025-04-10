@@ -91,7 +91,7 @@ const recipe = ref({
 const getRecipeById = async () => {
   try {
     isLoading.value = true;
-    const url = `http://localhost:5000/api/recipe/${route.params.id}`;
+    const url = `${import.meta.env.VITE_API_URL}/api/recipe/${route.params.id}`;
     const response = await axios.get(url);
     recipe.value = response.data;
   } catch (error) {
@@ -108,7 +108,7 @@ const updateRecipe = async () => {
     return;
   }
   try {
-    const url = `http://localhost:5000/api/recipe/${route.params.id}`;
+    const url = `${import.meta.env.VITE_API_URL}/api/recipe/${route.params.id}`;
     const response = await axios.put(url, recipe.value);
     if (response.status == 200) {
       toast.success('แก้ไขข้อมูลสำเร็จ');
@@ -134,7 +134,7 @@ const deleteRecipe = async (recipe) => {
 
   if (result.isConfirmed) {
     try {
-      const url = `http://localhost:5000/api/recipe/${recipe._id}`;
+      const url = `${import.meta.env.VITE_API_URL}/api/recipe/${recipe._id}`;
       const response = await axios.delete(url);
       if (response.status === 200) {
         Swal.fire(
