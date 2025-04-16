@@ -18,6 +18,11 @@ const recipeSchema = new mongoose.Schema(
       type: String,
       required: [true, "Please add the recipe instructions"],
     },
+    createdBy: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "user",
+      required: true,
+    },
   },
   {
     timestamps: true,

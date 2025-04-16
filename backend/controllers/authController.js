@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/userModel");
 const asyncHandler = require("express-async-handler");
 
-// @desc GET all recipe
+// @desc POST register
 // @route POST /api/auth/register
 // @access public
 
@@ -15,6 +15,11 @@ const register = asyncHandler(async (req, res) => {
     throw new Error("All fields are required");
   }
 
+  const userExists = await User.findOne({ username });
+  if (userExists){
+    res.status(400);
+    throw new Error("มีชื่อผู้ใช้นี้เเล้ว");
+  }
   const hashedPassword = await bcrypt.hash(password, 10);
 
   const newUser = await User({
@@ -44,13 +49,13 @@ const login = asyncHandler(async (req, res) => {
   const user = await User.findOne({ username });
   if (!user) {
     res.status(404);
-    throw new Error(`User with username ${username} not found`);
+    throw new Error(`ไม่เจอชื่อผู้ใช้ ${username} `);
   }
 
   const isPasswordValid = await bcrypt.compare(password, user.password);
   if (!isPasswordValid) {
     res.status(400);
-    throw new Error("Invalid credentials");
+    throw new Error("รหัสผ่านไม่ถูกต้อง");
   }
 
   const token = jwt.sign(
@@ -59,7 +64,7 @@ const login = asyncHandler(async (req, res) => {
       role: user.role,
     },
     process.env.JWT_SECRET,
-    { expiresIn: "1h" }
+    { expiresIn: "3h" }
   );
 
   res.status(200).json({

@@ -20,26 +20,6 @@
                         {{ recipe.name }}</h5>
                     <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 flex-grow line-clamp-3">{{
                         recipe.instructions }}</p>
-
-                    <div class="flex gap-2 mt-auto">
-                        <!-- <button @click="showRecipeDetails(recipe)" class="flex-1 inline-flex items-center justify-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition-colors duration-300">
-                            ดูรายละเอียด
-                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                            </svg>
-                        </button> -->
-                        <button @click="editRecipe(recipe)"
-                            class="flex-1 inline-flex items-center justify-center px-3 py-2 text-sm font-medium text-center text-white bg-yellow-500 rounded-lg hover:bg-yellow-600 focus:ring-4 focus:outline-none focus:ring-yellow-300 dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800 transition-colors duration-300">
-                            แก้ไข
-                            <svg class="w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                fill="none" viewBox="0 0 24 24">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z" />
-                            </svg>
-                        </button>
-
-                    </div>
                 </div>
             </div>
         </div>
@@ -124,9 +104,9 @@ const closeModal = () => {
     selectedRecipe.value = null;
 }
 
-const editRecipe = (recipe) => {
-    router.push(`/recipe/${recipe._id}`);
-}
+// const editRecipe = (recipe) => {
+//     router.push(`/recipe/${recipe._id}`);
+// }
 
 watch(selectedRecipe, (newValue) => {
     if (newValue) {
