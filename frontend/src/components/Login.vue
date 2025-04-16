@@ -77,20 +77,36 @@ const password = ref('');
 
 const handleLogin = async () => {
     try {
+        // Log the API URL and request data for debugging
+        console.log('API URL:', import.meta.env.VITE_API_URL);
+        console.log('Login attempt for username:', username.value);
+        
         const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/login`, {
             username: username.value,
             password: password.value
         });
 
-        if (response.data.token) {
+        if (response.data && response.data.token) {
+            console.log('Login successful, received token');
             auth.login(response.data.token, response.data.user); 
             toast.success('เข้าสู่ระบบสำเร็จ');
             router.push('/');
+        } else {
+            console.error('Response data:', response.data);
+            toast.error('ไม่พบ Token จากการตอบ');
         }
     } catch (error) {
-        toast.error(error.response?.data?.message || 'เข้าสู่ระบบไม่สำเร็จ');
+        console.error('Login error:', error);
+        console.error('Response:', error.response);
+        
+        const errorMessage = error.response?.data?.message || 
+                           error.message || 
+                           'เข้าระบบไม่สำเร็จ ลองใหม่ครั้ง';
+        
+        toast.error(errorMessage);
     }
 };
 </script>
+
 
 
