@@ -27,11 +27,6 @@
                 <div class="relative">
                     <img :src="recipe.image" :alt="recipe.name" 
                         class="w-full h-48 object-cover transition-transform duration-300 ">
-                    <div class="absolute top-0 right-0 m-2">
-                        <span class="bg-green-500 text-white text-xs px-2 py-1 rounded-full">
-                            My Recipe
-                        </span>
-                    </div>
                 </div>
                 <div class="p-5">
                     <h2 class="text-xl font-semibold mb-2 text-gray-800 dark:text-white">{{ recipe.name }}</h2>
