@@ -67,8 +67,6 @@ const fetchUserRecipes = async () => {
     try {
         loading.value = true;
         const token = auth.token;
-        console.log('Fetching with token:', token);
-
         const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/recipe/my`, {
             headers: {
                 Authorization: `Bearer ${token}`

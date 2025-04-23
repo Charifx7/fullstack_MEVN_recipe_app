@@ -53,7 +53,7 @@
                 <span class="text-gray-500">มีบัญชีเเล้ว</span>
                 <router-link to="/login" 
                     class="font-medium text-blue-600 hover:text-blue-800 transition-colors duration-150">
-                    เข้าระบบ
+                    เข้าสู่ระบบ
                 </router-link>
             </div>
         </div>

@@ -72,7 +72,7 @@
                         <li>
                             <router-link
                                 class="text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white transition"
-                                to="/login">เข้าระบบ</router-link>
+                                to="/login">เข้าสู่ระบบ</router-link>
                         </li>
 
                     </template>
