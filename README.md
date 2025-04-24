@@ -55,6 +55,7 @@ npm run dev
 ```bash
 VITE_API_URL=http://localhost:5000
 ````
+
 🔐 Authentication & Authorization
 เข้ารหัสรหัสผ่านก่อนเก็บในฐานข้อมูลด้วย bcrypt
 
@@ -81,6 +82,7 @@ VITE_API_URL=http://localhost:5000
 |--------|----------|-------------|--------|
 | POST   | `/register`          | สมัครสมาชิก | Public |
 | POST   | `/login`             | เข้าสู่ระบบ | Public |
+
 🔐 Middleware ที่ใช้
 verifyToken – ตรวจสอบ JWT Token
 
